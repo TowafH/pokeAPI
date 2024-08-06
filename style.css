@@ -45,3 +45,8 @@ form {
     justify-content: center;
     margin: 0 auto;
 }
+
+th, td {
+    border: 1px solid;
+    text-align: center;
+  }

@@ -22,28 +22,28 @@ function generatePokemon(event){
         return response.json();
     })
     .then(function(myPokeData){
-        //View the returned response.json(); in the Console with this parameter+console.log
+//View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData)
-        
-        //h1 styles
+
+//h1 styles
         pokeName.innerText = myPokeData.name;
 
-        //Image styles
+//Image styles
         pokeImg.src = myPokeData.sprites.front_default;
         pokeImg.style.width = "300px";
         pokeImg.style.height = "300px";
         pokeImg.style.marginTop = "-50px";
 
-        //Function with Sound
+//Function with Sound
         function makeSound(){
 
-            //Stop previous pokemon Sound
+//Stop previous pokemon Sound
             if (pokeSound){
                 pokeSound.pause();
                 pokeSound.currentTime = 0;
             }
 
-            //Play pokemon sound
+//Play pokemon sound
             pokeSound = new Audio(myPokeData.cries.latest);
             pokeSound.play();
         }

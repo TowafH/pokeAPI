@@ -39,7 +39,7 @@ function generatePokemon(event){
         return response.json();
     })
     .then(function(myPokeData){
-//View the returned response.json(); in the Console with this parameter+console.log
+        //View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData.stats)
 
         //h1 data
@@ -59,16 +59,16 @@ function generatePokemon(event){
             pokeStat[i].innerText = myPokeData.stats[i].base_stat;
         }
 
-//Function with Sound
+        //Function with Sound
         function makeSound(){
 
-//Stop previous pokemon Sound
+        //Stop previous pokemon Sound
             if (pokeSound){
                 pokeSound.pause();
                 pokeSound.currentTime = 0;
             }
 
-//Play pokemon sound
+        //Play pokemon sound
             pokeSound = new Audio(myPokeData.cries.latest);
             pokeSound.play();
         }

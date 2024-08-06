@@ -39,3 +39,9 @@ form {
     justify-content: center;
     margin: 0 auto;
 }
+
+#content #statsTable {
+    display: none;
+    justify-content: center;
+    margin: 0 auto;
+}

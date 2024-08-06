@@ -24,7 +24,7 @@ function generatePokemon(event){
     .then(function(myPokeData){
         //View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData)
-
+        
         //h1 styles
         pokeName.innerText = myPokeData.name;
 
@@ -42,7 +42,7 @@ function generatePokemon(event){
                 pokeSound.pause();
                 pokeSound.currentTime = 0;
             }
-            
+
             //Play pokemon sound
             pokeSound = new Audio(myPokeData.cries.latest);
             pokeSound.play();

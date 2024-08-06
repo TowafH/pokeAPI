@@ -32,6 +32,7 @@ form {
     color: #ffcc03;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #3761A8;
+    letter-spacing: 5px;
 }
 
 #content #pokeImg{

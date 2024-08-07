@@ -130,6 +130,7 @@ function randomizePokemon(event) {
         let pokemonUrl = selectedPokemon.url;
 
         pokeName.innerText = pokemonName;
+        pokeInput.value = pokemonName;
 
     //Create another Fetch
         fetch(pokemonUrl)

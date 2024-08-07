@@ -5,22 +5,18 @@ let pokeInput = document.getElementById("pokeInput");
 let pokeBtn = document.getElementById("pokeBtn");
 let pokeName = document.getElementById("pokeName")
 let pokeImg = document.getElementById("pokeImg");
+let statsTitle = document.getElementById("statsTitle");
 let statsTable = document.getElementById("statsTable");
+let movesTitle = document.getElementById("movesTitle");
+let movesList = document.getElementById("movesList");
 
 //Sound
 let pokeSound = null;
 
 //Stats Elements
 
-// let pokeHP = document.getElementById("pokeHP");
-// let pokeAtk = document.getElementById("pokeAtk");
-// let pokeDef = document.getElementById("pokeDef");
-// let pokeSpAtk = document.getElementById("pokeSpAtk");
-// let pokeSpDef = document.getElementById("pokeSpDef");
-// let pokeSpeed = document.getElementById("pokeSpeed");
-
 let pokeStat = document.querySelectorAll(".pokeStat")
-console.log(pokeStat)
+// console.log(pokeStat)
 
 //Add Function
 function generatePokemon(event){
@@ -40,9 +36,9 @@ function generatePokemon(event){
     })
     .then(function(myPokeData){
         //View the returned response.json(); in the Console with this parameter+console.log
-        console.log(myPokeData.stats)
+        console.log(myPokeData)
 
-        //h1 data
+        //Pokemon Title data
         pokeName.innerText = myPokeData.name;
 
         //Image data
@@ -52,12 +48,30 @@ function generatePokemon(event){
         pokeImg.style.height = "300px";
         pokeImg.style.marginTop = "-50px";
 
+        //Table title style
+        statsTitle.style.display = "block";
+        statsTitle.style.display = "flex";
+        statsTitle.style.marginTop = "-100px"
+
         //Table data
         statsTable.style.display = "block";
         statsTable.style.display = "flex";
+        // Loop to display the base stat totals of all pokemon efficently
         for (i = 0; i < pokeStat.length; i++){
             pokeStat[i].innerText = myPokeData.stats[i].base_stat;
         }
+
+        //Moves data
+        movesTitle.style.display = "block";
+        movesTitle.style.display = "flex";
+        // Loop to display all the moves of all pokemon efficently
+        for (i = 0; i < myPokeData.moves.length; i++){
+            let addList = document.createElement("li");
+            addList.innerText = myPokeData.moves[i].move.name;
+            movesList.appendChild(addList);
+        }
+
+
 
         //Function with Sound
         function makeSound(){

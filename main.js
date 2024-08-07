@@ -39,7 +39,7 @@ function generatePokemon(event){
         console.log(myPokeData)
 
         //Pokemon Title data
-        pokeName.innerText = myPokeData.name;
+        pokeName.innerText = myPokeData.name + " #" + myPokeData.id;
 
         //Image data
         pokeImg.src = myPokeData.sprites.front_default;
@@ -131,10 +131,7 @@ function randomizePokemon(event) {
         let pokemonName = selectedPokemon.name;
         let pokemonUrl = selectedPokemon.url;
 
-        pokeName.innerText = pokemonName;
-        pokeInput.value = pokemonName;
-
-    //Create another Fetch
+        //Create another Fetch
         fetch(pokemonUrl)
         .then(function(response){
             console.log(response);
@@ -143,7 +140,9 @@ function randomizePokemon(event) {
         .then(function(myPokeData){
             console.log(myPokeData);
         
-        
+        pokeName.innerText = pokemonName + " #" + myPokeData.id;
+        pokeInput.value = pokemonName;
+
         //Image data
         pokeImg.src = myPokeData.sprites.front_default;
         //Image styles

@@ -57,7 +57,7 @@ function generatePokemon(event){
         statsTable.style.display = "block";
         statsTable.style.display = "flex";
         // Loop to display the base stat totals of all pokemon efficently
-        for (i = 0; i < pokeStat.length; i++){
+        for (let i = 0; i < pokeStat.length; i++){
             pokeStat[i].innerText = myPokeData.stats[i].base_stat;
         }
 
@@ -65,7 +65,7 @@ function generatePokemon(event){
         movesTitle.style.display = "block";
         movesTitle.style.display = "flex";
         // Loop to display all the moves of all pokemon efficently
-        for (i = 0; i < myPokeData.moves.length; i++){
+        for (let i = 0; i < myPokeData.moves.length; i++){
             let addList = document.createElement("li");
             addList.innerText = myPokeData.moves[i].move.name;
             movesList.appendChild(addList);
@@ -159,7 +159,7 @@ function randomizePokemon(event) {
         statsTable.style.display = "block";
         statsTable.style.display = "flex";
         // Loop to display the base stat totals of all pokemon efficently
-        for (i = 0; i < pokeStat.length; i++){
+        for (let i = 0; i < pokeStat.length; i++){
             pokeStat[i].innerText = myPokeData.stats[i].base_stat;
         }
 
@@ -167,7 +167,7 @@ function randomizePokemon(event) {
         movesTitle.style.display = "block";
         movesTitle.style.display = "flex";
         // Loop to display all the moves of all pokemon efficently
-        for (i = 0; i < myPokeData.moves.length; i++){
+        for (let i = 0; i < myPokeData.moves.length; i++){
             let addList = document.createElement("li");
             addList.innerText = myPokeData.moves[i].move.name;
             movesList.appendChild(addList);

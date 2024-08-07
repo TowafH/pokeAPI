@@ -20,6 +20,25 @@ form {
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    gap: 3px;
+}
+
+#pokeBtn{
+    width: 75px;
+    color:#ffcc03;
+    background-color: #3761A8;
+}
+#pokeBtn:hover{
+    background-color: #4e7ac6;
+}
+
+#randomPokeBtn{
+    width: 100px;
+    color: #3761A8;
+    background-color: #ffcc03;
+}
+#randomPokeBtn:hover{
+    background-color: #f5db73;
 }
 
 #content h1 {

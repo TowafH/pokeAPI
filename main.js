@@ -110,7 +110,7 @@ let randomizeBtn = document.getElementById("randomPokeBtn");
 function randomizePokemon(event) {
     event.preventDefault();
 
-//Fetch the Data
+//Fetch ALL Pokemon Data
     fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
 //Preview the JSON 
     .then(function(response){
@@ -118,20 +118,18 @@ function randomizePokemon(event) {
         return response.json();
     })
     .then(function(myPokeData){
-        //View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData)
 
         //Generate a randomNumber between 0 - 1302
         let randomNumber = Math.floor(Math.random() * myPokeData.results.length);
 
-        // Retrieve Selected Pokemon's name and URL for more data
-        let selectedPokemon = myPokeData.results[randomNumber];
-        let pokemonName = selectedPokemon.name;
-        let pokemonUrl = selectedPokemon.url;
+        // Retrieve Selected Pokemon URL 
+        let pokemonUrl = myPokeData.results[randomNumber].url;
+        
+        //Input the name of the randomly selected Pokemon
+        pokeName.innerText = myPokeData.results[randomNumber].name;
 
-        pokeName.innerText = pokemonName;
-
-    //Create another Fetch
+    //Fetch the pokemonUrl for more values
         fetch(pokemonUrl)
         .then(function(response){
             console.log(response);
@@ -148,39 +146,39 @@ function randomizePokemon(event) {
         pokeImg.style.height = "300px";
         pokeImg.style.marginTop = "-50px";
 
-                //Table title style
-                statsTitle.style.display = "block";
-                statsTitle.style.display = "flex";
-                statsTitle.style.marginTop = "-100px"
+        //Table title style
+        statsTitle.style.display = "block";
+        tatsTitle.style.display = "flex";
+        statsTitle.style.marginTop = "-100px"
         
-                //Table data
-                statsTable.style.display = "block";
-                statsTable.style.display = "flex";
-                // Loop to display the base stat totals of all pokemon efficently
-                for (i = 0; i < pokeStat.length; i++){
-                    pokeStat[i].innerText = myPokeData.stats[i].base_stat;
-                }
+        //Table data
+        statsTable.style.display = "block";
+        statsTable.style.display = "flex";
+        // Loop to display the base stat totals of all pokemon efficently
+        for (i = 0; i < pokeStat.length; i++){
+            pokeStat[i].innerText = myPokeData.stats[i].base_stat;
+        }
         
-                //Moves data
-                movesTitle.style.display = "block";
-                movesTitle.style.display = "flex";
-                // Loop to display all the moves of all pokemon efficently
-                for (i = 0; i < myPokeData.moves.length; i++){
-                    let addList = document.createElement("li");
-                    addList.innerText = myPokeData.moves[i].move.name;
-                    movesList.appendChild(addList);
-                }
+        //Moves data
+        movesTitle.style.display = "block";
+        movesTitle.style.display = "flex";
+        // Loop to display all the moves of all pokemon efficently
+        for (i = 0; i < myPokeData.moves.length; i++){
+            let addList = document.createElement("li");
+            addList.innerText = myPokeData.moves[i].move.name;
+            movesList.appendChild(addList);
+         }
         
         
         
-                //Function with Sound
-                function makeSound(){
+        //Function with Sound
+        function makeSound(){
         
-                //Stop previous pokemon Sound
-                    if (pokeSound){
-                        pokeSound.pause();
-                        pokeSound.currentTime = 0;
-                    }
+        //Stop previous pokemon Sound
+              if (pokeSound){
+                  pokeSound.pause();
+                  pokeSound.currentTime = 0;
+                 }
         
                 //Play pokemon sound
                     pokeSound = new Audio(myPokeData.cries.latest);

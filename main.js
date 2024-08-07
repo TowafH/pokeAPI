@@ -38,6 +38,9 @@ function generatePokemon(event){
         //View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData)
 
+        //Reset Moves data
+        movesList.innerText = "";
+
         //Pokemon Title data
         pokeName.innerText = myPokeData.name + " #" + myPokeData.id;
 
@@ -69,6 +72,7 @@ function generatePokemon(event){
             let addList = document.createElement("li");
             addList.innerText = myPokeData.moves[i].move.name;
             movesList.appendChild(addList);
+
         }
 
 
@@ -123,6 +127,7 @@ function randomizePokemon(event) {
         //View the returned response.json(); in the Console with this parameter+console.log
         console.log(myPokeData)
 
+
         //Generate a randomNumber between 0 - 1302
         let randomNumber = Math.floor(Math.random() * myPokeData.results.length);
 
@@ -139,7 +144,10 @@ function randomizePokemon(event) {
         })
         .then(function(myPokeData){
             console.log(myPokeData);
-        
+
+        //Reset Moves data
+        movesList.innerText = "";
+
         pokeName.innerText = pokemonName + " #" + myPokeData.id;
         pokeInput.value = pokemonName;
 

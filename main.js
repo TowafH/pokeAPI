@@ -87,6 +87,8 @@ function generatePokemon(event){
             pokeSound.play();
         }
 
+        pokeImg.removeEventListener("mouseover", makeSound);
+        pokeImg.addEventListener("mouseover", makeSound);
         pokeImg.removeEventListener("click", makeSound);
         pokeImg.addEventListener("click", makeSound);
     })
@@ -187,6 +189,8 @@ function randomizePokemon(event) {
             pokeSound.play();
         }
 
+        pokeImg.removeEventListener("mouseover", makeSound);
+        pokeImg.addEventListener("mouseover", makeSound);
         pokeImg.removeEventListener("click", makeSound);
         pokeImg.addEventListener("click", makeSound);
     })

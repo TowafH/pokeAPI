@@ -89,6 +89,8 @@ function generatePokemon(event){
 
         pokeImg.removeEventListener("mouseover", makeSound);
         pokeImg.addEventListener("mouseover", makeSound);
+        pokeImg.removeEventListener("click", makeSound);
+        pokeImg.addEventListener("click", makeSound);
     })
 }
 
